@@ -8,14 +8,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-
 public class TrexTest {
 		static int pixelgraux, pixelgrauy, gameoverx, gameovery, pixeldownx;
 		static Timer timer;
 		static Color graufarbe, Farbe, Farbegameover, Farbedown;
 		static Robot robot;
 	
-	public static void main(String[] args) throws AWTException {
+	public TrexTest() throws AWTException {   
 		
 		pixelgraux = 800;
 		pixelgrauy = 480;
@@ -52,12 +51,12 @@ public class TrexTest {
 			    	robot.keyRelease(KeyEvent.VK_SPACE);
 			    	robot.keyPress(KeyEvent.VK_SPACE);
 			    }
-			    if (Farbedown.equals(graufarbe)) {
+			  /*  if (Farbedown.equals(graufarbe)) {
 			    	System.out.println("Down");
 			    	robot.keyRelease(KeyEvent.VK_SPACE);
 			    	robot.keyPress(KeyEvent.VK_DOWN);
 			    	robot.keyRelease(KeyEvent.VK_DOWN);
-			    }
+			    }*/
 			
 			}
 			
@@ -66,5 +65,6 @@ public class TrexTest {
 	}
 	    
 }
+
 	
 
