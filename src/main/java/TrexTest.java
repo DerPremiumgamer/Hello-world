@@ -9,27 +9,30 @@ import java.util.TimerTask;
 
 
 public class TrexTest {
-		static int pixelgraux, pixelgrauy, gameoverx, gameovery, pixeldownx;
+		static int pixelgraux, pixelgrauy, gameoverx, gameovery, pixeldownx, pixeldowny , dinojumpx, dinojumpy;
 		static Timer timer;
-		static Color graufarbe, Farbe, Farbegameover, Farbedown;
+		static Color graufarbe, Farbe, Farbegameover, Farbedown, Farbedinojump;
 		static Robot robot;
 	
 	public TrexTest() throws AWTException {   
 		
-		pixelgraux = 800;
-		pixelgrauy = 480;
-		gameoverx = 914;
-		pixeldownx = 650; 
-		gameovery = pixelgrauy -82;
+		pixelgraux = 820;
+		pixelgrauy = 479;
+		
+		gameoverx = 912;
+		gameovery = 400;
+		
+		dinojumpx = 750;
+		dinojumpy = 410;
+		pixeldownx = 730;
+		pixeldowny = 481;
+		
 		robot = new Robot();
+		robot.mouseMove(815, 479); 
 		graufarbe = new Color(83,83,83);
 		timer = new Timer();
 	
-		
-		robot.mouseMove(650,pixelgrauy);
-		robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-		robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-		robot.keyPress(KeyEvent.VK_SPACE);
+
 		
 		// Timer starten    
 		 
@@ -39,29 +42,35 @@ public class TrexTest {
 				
 			Farbe = robot.getPixelColor(pixelgraux,pixelgrauy);	
 			Farbegameover = robot.getPixelColor(gameoverx,gameovery);
-			Farbedown = robot.getPixelColor(pixeldownx, pixelgrauy);
+		
 			 
 			    if (Farbe.equals(graufarbe)) {
 			    	System.out.println("Springen"); 
-					robot.keyPress(KeyEvent.VK_SPACE);	
+					
+			    	robot.keyPress(KeyEvent.VK_SPACE);	
+			    	
 			    } 
 			    
-			    if (Farbegameover.equals(graufarbe)) {
+			 
+			     	if (Farbegameover.equals(graufarbe)) {
 			    	System.out.println("Game Over restart");
-			    	robot.keyRelease(KeyEvent.VK_SPACE);
 			    	robot.keyPress(KeyEvent.VK_SPACE);
-			    }
-			  /*  if (Farbedown.equals(graufarbe)) {
-			    	System.out.println("Down");
 			    	robot.keyRelease(KeyEvent.VK_SPACE);
-			    	robot.keyPress(KeyEvent.VK_DOWN);
-			    	robot.keyRelease(KeyEvent.VK_DOWN);
-			    }*/
+			    	
+			    	
+			    	
+			    }
+			   
+			 
+		
 			
 			}
 			
-		},0, 10 );
+		},0, 1 );
 		 
+	}
+	public static void timerstop() {
+		timer.cancel();
 	}
 	    
 }
