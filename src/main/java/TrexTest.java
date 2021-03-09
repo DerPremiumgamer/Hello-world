@@ -1,34 +1,23 @@
 import java.awt.AWTException;
 import java.awt.Color;
 import java.awt.Robot;
-import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
 import java.util.Timer;
 import java.util.TimerTask;
 
 
 public class TrexTest {
-		static int pixelgraux, pixelgrauy, gameoverx, gameovery, pixeldownx, pixeldowny , dinojumpx, dinojumpy;
+		
 		static Timer timer;
-		static Color graufarbe, Farbe, Farbegameover, Farbedown, Farbedinojump;
+		static Color graufarbe, Farbe, Farbegameover;
 		static Robot robot;
 	
 	public TrexTest() throws AWTException {   
 		
-		pixelgraux = 820;
-		pixelgrauy = 479;
 		
-		gameoverx = 912;
-		gameovery = 400;
-		
-		dinojumpx = 750;
-		dinojumpy = 410;
-		pixeldownx = 730;
-		pixeldowny = 481;
+	
 		
 		robot = new Robot();
-		robot.mouseMove(815, 479); 
 		graufarbe = new Color(83,83,83);
 		timer = new Timer();
 	
@@ -40,8 +29,8 @@ public class TrexTest {
 			
 			public void run() {
 				
-			Farbe = robot.getPixelColor(pixelgraux,pixelgrauy);	
-			Farbegameover = robot.getPixelColor(gameoverx,gameovery);
+			Farbe = robot.getPixelColor(kalibrieren.pixelgraux,kalibrieren.pixelgrauy);	
+			Farbegameover = robot.getPixelColor(kalibrieren.gameoverx,kalibrieren.gameovery);
 		
 			 
 			    if (Farbe.equals(graufarbe)) {
