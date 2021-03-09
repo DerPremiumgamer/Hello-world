@@ -1,15 +1,15 @@
+import java.awt.Color;
+import java.awt.LinearGradientPaint;
 import java.awt.MouseInfo;
+import java.awt.Panel;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 
-public class kalibrieren implements MouseListener{
+public class kalibrieren {
 	static int pixelgraux, pixelgrauy, gameoverx, gameovery;
-	static Point mauspunkt;
-	static int x,y;
-	static boolean kalibrierung;
 	static JFrame j;
 	
 	public kalibrieren() {
@@ -18,49 +18,40 @@ public class kalibrieren implements MouseListener{
 		
 		gameoverx = 912;
 		gameovery = 400;
-		kalibrierung = false;
+		
 	}
 	
+
 	public static void start() {
 		j = new JFrame();
-		j.setSize(1920,1080);
+		j.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
 		j.setResizable(false);
 		j.setLocationRelativeTo(null);
+		j.setLayout(null);
+		j.setUndecorated(true);
+		j.setBackground(new Color(0,0,0,25));
+		j.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		MouseListener ml = new Maushörer();
+		
+		
+       
+		j.addMouseListener(ml);
+		
 		j.setVisible(true);
+		
+		
+	
 		
 	}
 	public static void beenden() {
 		j.dispose();
 	}
+	public static void set(int x, int y) {
+		
+		System.out.println("Koordinaten abgefragt: x = " + x +" y = " + y);
+	}
 	
-	public void mouseClicked(MouseEvent e) {
-
-		if(kalibrierung == true) {
-		mauspunkt = MouseInfo.getPointerInfo().getLocation();
-		
-
-		x = (int) mauspunkt.x;
-		y = (int) mauspunkt.y;
-		System.out.println("Koordinaten abgefragt");
-		
-		
-		}
-	}
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 }

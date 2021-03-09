@@ -14,20 +14,21 @@ public class Aktionshörer implements ActionListener{
 				System.out.println("Kalibrieren");
 	            start.butcali.setVisible(false);
 	            start.butcalistop.setVisible(true);
-	            kalibrieren.kalibrierung = true;
 	            kalibrieren.start();
-	            
-	            
-	      
+	            start.lab.setVisible(true);
 	            
 	        }
 		if(e.getSource() == start.butcalistop){
-            
-            start.butcalistop.setVisible(false);
-            start.butcali.setVisible(true);
-            kalibrieren.kalibrierung = false;
+				start.butcalistop.setVisible(false);
+	            start.butcali.setVisible(true);
+	            kalibrieren.beenden();
+	            start.lab.setVisible(false);
             
         }
+	
+		
+
+		
 		if(e.getSource() == start.butstop){
 				TrexTest.timerstop();
 				start.butstop.setVisible(false);
