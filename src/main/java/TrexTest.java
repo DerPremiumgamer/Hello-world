@@ -9,7 +9,7 @@ import java.util.TimerTask;
 public class TrexTest {
 		
 		static Timer timer;
-		static Color graufarbe, Farbe, Farbegameover;
+		static Color graufarbe, Farbe, Farbedone;
 		static Robot robot;
 	
 	public TrexTest() throws AWTException {   
@@ -30,8 +30,7 @@ public class TrexTest {
 			public void run() {
 				
 			Farbe = robot.getPixelColor(kalibrieren.pixelgraux,kalibrieren.pixelgrauy);	
-			Farbegameover = robot.getPixelColor(kalibrieren.gameoverx,kalibrieren.gameovery);
-		
+			Farbedone = robot.getPixelColor(kalibrieren.pixeldonex, kalibrieren.pixeldoney);
 			 
 			    if (Farbe.equals(graufarbe)) {
 			    	System.out.println("Springen"); 
@@ -39,23 +38,21 @@ public class TrexTest {
 			    	robot.keyPress(KeyEvent.VK_SPACE);	
 			    	
 			    } 
-			    
-			 
-			     	if (Farbegameover.equals(graufarbe)) {
-			    	System.out.println("Game Over restart");
-			    	robot.keyPress(KeyEvent.VK_SPACE);
+			    if (Farbedone.equals(graufarbe)) {
 			    	robot.keyRelease(KeyEvent.VK_SPACE);
 			    	
 			    	
-			    	
 			    }
-			   
+			    
+			    
+			    
+			
 			 
 		
 			
 			}
 			
-		},0, 1 );
+		},0, 3 );
 		 
 	}
 	public static void timerstop() {
