@@ -1,23 +1,19 @@
 import java.awt.Color;
-import java.awt.LinearGradientPaint;
-import java.awt.MouseInfo;
-import java.awt.Panel;
-import java.awt.Point;
-import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 
 public class kalibrieren {
-	static int pixelgraux, pixelgrauy, gameoverx, gameovery;
+	static int pixelgraux, pixelgrauy, gameoverx, gameovery, pixeldonex, pixeldoney;
 	static JFrame j;
 	
 	public kalibrieren() {
-		pixelgraux = 820;
-		pixelgrauy = 479;
+		pixelgraux = 822;
+		pixelgrauy = 475;
+
 		
-		gameoverx = 912;
-		gameovery = 400;
+		pixeldonex = 655;
+		pixeldoney = 479;
 		
 	}
 	
@@ -50,6 +46,12 @@ public class kalibrieren {
 	public static void set(int x, int y) {
 		
 		System.out.println("Koordinaten abgefragt: x = " + x +" y = " + y);
+		
+		pixelgraux = x + 143;
+		pixelgrauy = y + 20;
+		
+		pixeldonex = x - 24;
+		pixeldoney = y + 20;
 	}
 	
 	
